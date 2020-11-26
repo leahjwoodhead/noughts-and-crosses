@@ -7,6 +7,23 @@
   pointer-events: none;
 }
 
+#grid {
+  width: 600px;
+  height: 600px;
+  display: flex;
+}
+.row {
+  flex-direction: row;
+}
+#grid .square {
+  border: 2px solid black;
+  width: 200px;
+  height: 200px;
+}
+#grid .square:hover {
+  background-color: blue;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
