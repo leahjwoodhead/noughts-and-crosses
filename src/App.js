@@ -9,18 +9,16 @@ import Grid from './Grid'
  */
 class App extends React.Component {
   state = {
-    //turn: noughts
+    gridSize: 3
   }
 
   render() {
     return (
       <div>
         <h1>Noughts and Crosses</h1>
-      <Grid/> 
-    
+        <Grid/> 
       </div>
     )
-      
   }
 }
 
