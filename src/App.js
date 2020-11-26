@@ -14,8 +14,13 @@ class App extends React.Component {
 
   render() {
     return (
+      <div>
+        <h1>Noughts and Crosses</h1>
       <Grid/> 
+    
+      </div>
     )
+      
   }
 }
 
