@@ -10,17 +10,19 @@ class Grid extends React.Component {
         winner: false
     }
 
-    takeTurn(event, index) {
+    takeTurn(index) {
         if (!this.state.winner) {
             this.setState((currState) => {
                 if (currState.grid[index] === "") {
                     const newGrid = [...currState.grid]
-                    const newClass = [...currState.class]
+                    let newClass = [...currState.class]
                     newGrid[index] = (currState.turn ? "X" : "O")
                     newClass[index] = "filled"
                     const isWinner = this.checkWinner(newGrid, index)
-                    return { grid: newGrid, turn: !currState.turn, class: newClass, winner: isWinner}
-                } 
+
+                    if (isWinner) newClass = currState.class.map(() => { return "filled" })
+                    return { grid: newGrid, turn: !currState.turn, class: newClass, winner: isWinner }
+                }
             })
         }
     }
@@ -36,17 +38,27 @@ class Grid extends React.Component {
         return (isWinner.length !== 0)
     }
 
+
     render() {
         return (
             <div>
-                  <div id="grid">{
-                this.state.grid.map((item, index) => {
-                    return <div id={index} class={`square ${this.state.class[index]}`} onClick={(event) => this.takeTurn(event, index)}><p>{this.state.grid[index]}</p></div>
-                })
-            }
+                <div id="grid-container">
+                    {(this.state.winner ? <p class="emoji">🎉</p> : <p></p>)}
+                    <div id="grid">{
+                        this.state.grid.map((item, index) => {
+                            return <div id={index} class={`square ${this.state.class[index]}`} onClick={() => this.takeTurn(index)}><p>{this.state.grid[index]}</p></div>
+                        })
+                    }
+                    </div>
+                    {(this.state.winner ? <p class="emoji">🎉</p> : <p></p>)}
+
+
+                </div>
+                <div id="winnerPopup">
+                    {(this.state.winner ? <p class="winner">{this.state.turn ? "Noughts" : "Crosses"} has won!</p> : <p></p>)}
+                </div>
             </div>
-                {(this.state.winner ? <p>WINNER</p> : <p></p>)}
-            </div>
+
         )
     }
 }
