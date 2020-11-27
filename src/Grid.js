@@ -43,7 +43,7 @@ class Grid extends React.Component {
         return (
             <div>
                 <div id="grid-container">
-                    {(this.state.winner ? <p class="emoji">🎉</p> : <p></p>)}
+                    {(this.state.winner ? <p id="left" class="emoji">🎉</p> : <p></p>)}
                     <div id="grid">{
                         this.state.grid.map((item, index) => {
                             return <div id={index} class={`square ${this.state.class[index]}`} onClick={() => this.takeTurn(index)}><p>{this.state.grid[index]}</p></div>
