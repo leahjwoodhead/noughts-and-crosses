@@ -1,12 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 //import { ReactComponent } from '*.svg';
 import React from 'react';
-import Grid from './Grid'
-/*
- * 3x3 grid 
+import Grid from './components/Grid'
 
- */
 class App extends React.Component {
   state = {
     gridSize: 3

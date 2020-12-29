@@ -42,6 +42,7 @@ class Grid extends React.Component {
     render() {
         return (
             <div>
+                {(this.state.winner ? <p></p> : (this.state.turn ? <p>Player 1's turn</p> : <p>Player 2's turn</p>))}
                 <div id="grid-container">
                     {(this.state.winner ? <p id="left" class="emoji">🎉</p> : <p></p>)}
                     <div id="grid">{
@@ -63,15 +64,3 @@ class Grid extends React.Component {
     }
 }
 export default Grid;
-
-
-
- // componentDidMount() {
-    //     const grid = [];
-    //     for (let i = 0; i < numOfRows*numOfRows; i++) {
-    //         grid.push("")
-    //     }
-    //     this.setState({grid: grid})
-    // }
-
-    // makeGrid(numOfRows) {
